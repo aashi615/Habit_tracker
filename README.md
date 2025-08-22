@@ -47,41 +47,4 @@ Track Mistakes & Learnings – Write down setbacks and what they learned from th
 ![habit11](https://github.com/user-attachments/assets/7aae8fa2-69bf-4382-823e-c7c9279f24e2)
 ![habit12](https://github.com/user-attachments/assets/db81a9c3-266a-45b3-8634-9586d93707ca)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-To deliver a holistic, goal-focused experience, the app integrates multiple modules:
-
-✅ Short-Term Habit Tracking – Monitor daily habits and routines with ease.
-
-📝 Personal Journaling – Reflect on progress and record thoughts alongside habits.
-
-📋 Custom To-Do Lists – Stay organized with task management built into the tracker.
-
-🎯 Long-Term Goal Monitoring – Track bigger milestones and long-term commitments.
-
-Together, these features transform Habit Tracker from a simple checklist into a complete personal growth companion.
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+You can download the app using the apk - https://drive.google.com/file/d/1gwYVNUXht3csOq5HKSAhGxNWfj8MBHN4/view?usp=sharing
