@@ -3,7 +3,7 @@
 
 In our day-to-day lives, we often struggle with inconsistency—whether it’s sticking to a routine, building a new skill, or simply maintaining healthy habits. Over time, these small breaks lead to bigger gaps in our growth.
 
-That’s where the Habitué comes in.
+That’s where the Habitué comes in.   
 A personalized habit companion, it helps you stay on track by keeping a record of your daily routines, sending gentle reminders, and showing your progress through interactive visuals. With features like short-term habit tracking, journaling, to-do lists, and long-term goal monitoring, it transforms discipline into an achievable, motivating, and rewarding journey.
 
 The Habit Tracker app is designed to help users build consistency, stay motivated, and achieve their personal goals.
