@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/pages/Login_Page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:habit_tracker/views/Login_Page.dart';
+import 'package:habit_tracker/views/MainScreen.dart';
+
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -9,9 +12,12 @@ class WelcomeScreen extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFe0f7fa), Color(0xFF0288d1)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFFFDDDE6),
+              Color(0xFF6A82FB),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
         ),
         child: Column(
@@ -19,7 +25,7 @@ class WelcomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              child: Image.asset('assets/images/Checklist.png'),
+              child: Image.asset('assets/images/initialscreens/Checklist.png'),
               height: 300,
               width: 320,
             ),
@@ -29,7 +35,7 @@ class WelcomeScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 27,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Color(0xFF0F0E47),
               ),
               textAlign: TextAlign.center,
             ),
@@ -39,6 +45,7 @@ class WelcomeScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
                 color: Colors.white70,
               ),
               textAlign: TextAlign.center,
@@ -78,10 +85,11 @@ class _SliderWidgetState extends State<SliderWidget> {
                 if (_sliderValue < 1)
                   Padding(
                     padding: const EdgeInsets.only(right: 10.0),
-                    child: Image.asset('assets/images/3arrows.png',color: Color.fromRGBO(
-                        53, 160, 216, 1.0),
-                    height: 50,
-                    )
+                    child: Image.asset(
+                      'assets/images/initialscreens/3arrows.png',
+                      color: Color(0xFF6A82FB),
+                      height: 50,
+                    ),
                   ),
               ],
             ),
@@ -107,12 +115,20 @@ class _SliderWidgetState extends State<SliderWidget> {
                     _sliderValue = value;
                   });
                 },
-                onChangeEnd: (value) {
+                onChangeEnd: (value) async {
                   if (value == 1) {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginPage()),
-                    );
+                    final user = FirebaseAuth.instance.currentUser;
+                    if (user != null && user.emailVerified) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => MainScreen()),
+                      );
+                    } else {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
+                    }
                   }
                 },
               ),
@@ -163,30 +179,29 @@ class CustomSliderThumbCircle extends SliderComponentShape {
 
     canvas.drawCircle(center, thumbRadius, paint);
     final borderPaint = Paint()
-      ..color = Color.fromRGBO(20, 144, 210, 1.0)
+      ..color = Color(0xFF6A82FB)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.0;
     canvas.drawCircle(center, thumbRadius, borderPaint);
 
-    TextSpan span = new TextSpan(
-      style: new TextStyle(
+    TextSpan span = TextSpan(
+      style: TextStyle(
         fontSize: thumbRadius * 0.6,
         fontWeight: FontWeight.bold,
-        color: Color.fromRGBO(20, 144, 210, 1.0),
+        color: Color(0xFF6A82FB),
       ),
       text: 'Start',
     );
 
-    TextPainter tp = new TextPainter(
-        text: span,
-        textAlign: TextAlign.center,
-        textDirection: TextDirection.ltr);
+    TextPainter tp = TextPainter(
+      text: span,
+      textAlign: TextAlign.center,
+      textDirection: TextDirection.ltr,
+    );
     tp.layout();
     tp.paint(
-        canvas,
-        new Offset(center.dx - (tp.width / 2),
-            center.dy - (tp.height / 2)));
+      canvas,
+      Offset(center.dx - (tp.width / 2), center.dy - (tp.height / 2)),
+    );
   }
 }
-
-

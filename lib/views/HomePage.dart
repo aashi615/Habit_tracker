@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/util/habit_tile.dart';
-import 'package:habit_tracker/pages/Statistics_page.dart'; // Assuming you have this file for the statistics page
+import 'package:habit_tracker/views/Statistics_page.dart'; // Assuming you have this file for the statistics page
 
 class HomePage extends StatefulWidget {
   @override
